@@ -6,6 +6,9 @@
 	<artifactId>helloworld</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
+	<!-- 打war包 用来支持jsp -->
+	<packaging>war</packaging>
+
 	<!-- SpringBoot 整合第三方常用框架 -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -19,7 +22,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		
 		<!-- 引入外部Tomcat支持 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
