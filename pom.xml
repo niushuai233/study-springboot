@@ -19,11 +19,19 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<!-- 引入外部Tomcat支持 -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
 
 		<!-- 使用springboot能够构建微服务，实现微服务接口，但是并不代表springboot就是微服务框架 -->
 		<!-- springboot 走resuful标准 使用http+json格式进行通讯 -->
 
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
+		</dependency>
 	</dependencies>
 
 
