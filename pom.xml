@@ -7,7 +7,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<!-- 打war包 用来支持jsp -->
-	<packaging>war</packaging>
 
 	<!-- SpringBoot 整合第三方常用框架 -->
 	<parent>
