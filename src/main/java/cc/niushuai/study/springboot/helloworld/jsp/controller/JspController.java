@@ -10,15 +10,37 @@
 
 package cc.niushuai.study.springboot.helloworld.jsp.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class JspController {
-	
+
+    private static final Logger logger = LoggerFactory.getLogger(JspController.class);
+
 	@RequestMapping("/jspIndex")
+    @ResponseBody
 	public String indexJsp() {
-		
+
+        /**
+         * 需要指定日志级别 否则不能全部输出 默认级别为info
+         *
+         * 打印日志信息从多到少排序为
+         * trace > debug > info > warn > error
+         *
+         */
+        //测试日志文件归档
+        int i = 100000;
+        while (i-->0) {
+            logger.info("this is info level log");
+            logger.debug("this is debug level log");
+            logger.error("this is error level log");
+            logger.warn("this is warn level log");
+            logger.trace("this is trace level log");
+        }
 		return "indexOfJsp";
 	}
 
