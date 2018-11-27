@@ -10,6 +10,8 @@
 
 package cc.niushuai.study.springboot.helloworld.jsp.controller;
 
+import cc.niushuai.study.springboot.helloworld.enums.LogTypeEnum;
+import cc.niushuai.study.springboot.helloworld.jsp.annotation.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -33,7 +35,7 @@ public class JspController {
          *
          */
         //测试日志文件归档
-        int i = 100000;
+        int i = 1;
         while (i-->0) {
             logger.info("this is info level log");
             logger.debug("this is debug level log");
@@ -43,5 +45,22 @@ public class JspController {
         }
 		return "indexOfJsp";
 	}
+
+
+	@Log(logContent = "测试log操作", logType = LogTypeEnum.OTHER)
+	@RequestMapping("/testLog")
+    @ResponseBody
+	public String testLog(){
+
+	    return "testLog";
+    }
+
+    @Log(logContent = "测试testLogWithArgs操作", logType = LogTypeEnum.OTHER)
+	@RequestMapping("/testLogWithArgs")
+    @ResponseBody
+	public String testLogWithArgs(String arg){
+
+	    return "testLogWithArgs";
+    }
 
 }

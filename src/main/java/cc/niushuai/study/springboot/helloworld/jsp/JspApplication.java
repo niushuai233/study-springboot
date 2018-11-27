@@ -16,7 +16,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @SpringBootApplication
-@ComponentScan("cc.niushuai.study.springboot.helloworld.jsp.controller")
+@ComponentScan("cc.niushuai.study.springboot.helloworld.jsp")
 public class JspApplication {
 	
 	public static void main(String[] args) {
