@@ -6,11 +6,13 @@ import com.alibaba.fastjson.JSONObject;
 import eu.bitwalker.useragentutils.OperatingSystem;
 import eu.bitwalker.useragentutils.UserAgent;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.aspectj.lang.reflect.SourceLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -84,14 +86,14 @@ public class LogAspect {
             //浏览器类型
             String browser = userAgent.getBrowser().getName();
             //浏览器版本
-            String browserVersion = userAgent.getBrowserVersion().getVersion();
-            log.setBrowser(browser + " " + browserVersion);
+            //String browserVersion = userAgent.getBrowserVersion().getVersion();
+            log.setBrowser(browser);
 
             log.setCreateDate(new Date());
 
             return log;
         } catch (Exception e) {
-            log.error("记录日志信息出错", e.getMessage());
+            log.error("记录日志信息出错：[{}]", e.getMessage());
         }
         return null;
     }
@@ -102,6 +104,7 @@ public class LogAspect {
      * @return
      */
     private String getParams(JoinPoint joinPoint) {
+
         Object[] obj = joinPoint.getArgs();
         StringBuffer buffer = new StringBuffer();
         if (obj != null) {
