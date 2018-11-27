@@ -13,10 +13,12 @@ package cc.niushuai.study.springboot.helloworld.jsp;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @SpringBootApplication
 @ComponentScan("cc.niushuai.study.springboot.helloworld.jsp")
+@EnableAsync
 public class JspApplication {
 	
 	public static void main(String[] args) {

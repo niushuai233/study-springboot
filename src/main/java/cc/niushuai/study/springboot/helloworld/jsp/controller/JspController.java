@@ -12,18 +12,22 @@ package cc.niushuai.study.springboot.helloworld.jsp.controller;
 
 import cc.niushuai.study.springboot.helloworld.enums.LogTypeEnum;
 import cc.niushuai.study.springboot.helloworld.jsp.annotation.Log;
+import cc.niushuai.study.springboot.helloworld.jsp.service.TestService;
+import lombok.extern.slf4j.Slf4j;
+import org.aspectj.weaver.ast.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+@Slf4j
 public class JspController {
 
-    private static final Logger logger = LoggerFactory.getLogger(JspController.class);
-
-	@RequestMapping("/jspIndex")
+    @RequestMapping("/jspIndex")
     @ResponseBody
 	public String indexJsp() {
 
@@ -37,15 +41,14 @@ public class JspController {
         //测试日志文件归档
         int i = 1;
         while (i-->0) {
-            logger.info("this is info level log");
-            logger.debug("this is debug level log");
-            logger.error("this is error level log");
-            logger.warn("this is warn level log");
-            logger.trace("this is trace level log");
+            log.info("this is info level log");
+            log.debug("this is debug level log");
+            log.error("this is error level log");
+            log.warn("this is warn level log");
+            log.trace("this is trace level log");
         }
 		return "indexOfJsp";
 	}
-
 
 	@Log(logContent = "测试log操作", logType = LogTypeEnum.OTHER)
 	@RequestMapping("/testLog")
@@ -63,4 +66,24 @@ public class JspController {
 	    return "testLogWithArgs";
     }
 
+    @Autowired
+    private TestService testService;
+
+    @RequestMapping("/testAysnc")
+    @ResponseBody
+    public String testAysnc() {
+        log.info("1");
+        String result = testService.testAsync();
+        log.info("4");
+        return result;
+    }
+
+    @Value("${httpurl}")
+    private String url;
+
+    @RequestMapping("/getUrl")
+    @ResponseBody
+    public String getUrl(){
+        return url;
+    }
 }
