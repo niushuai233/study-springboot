@@ -1,52 +1,52 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>cc.niushuai.study.springboot</groupId>
-	<artifactId>helloworld</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>cc.niushuai.study.springboot</groupId>
+    <artifactId>helloworld</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 
-	<!-- 打war包 用来支持jsp -->
-	<packaging>war</packaging>
+    <!-- 打war包 用来支持jsp -->
+    <packaging>war</packaging>
 
-	<!-- SpringBoot 整合第三方常用框架 -->
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.4.RELEASE</version>
-	</parent>
+    <!-- SpringBoot 整合第三方常用框架 -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.4.RELEASE</version>
+    </parent>
 
-	<dependencies>
-		<!-- 整合SpringMVC 使用maven继承方式引入依赖 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+    <dependencies>
+        <!-- 整合SpringMVC 使用maven继承方式引入依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
         <!--AOP-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
-		
-		<!-- 引入外部Tomcat支持 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-		</dependency>
 
-		<!-- 使用springboot能够构建微服务，实现微服务接口，但是并不代表springboot就是微服务框架 -->
-		<!-- springboot 走resuful标准 使用http+json格式进行通讯 -->
+        <!-- 引入外部Tomcat支持 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+        </dependency>
+
+        <!-- 使用springboot能够构建微服务，实现微服务接口，但是并不代表springboot就是微服务框架 -->
+        <!-- springboot 走resuful标准 使用http+json格式进行通讯 -->
 
         <!--freemarker-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-freemarker</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
 
         <!--Lombok-->
         <dependency>
@@ -54,11 +54,29 @@
             <artifactId>lombok</artifactId>
             <version>1.18.2</version>
         </dependency>
-
+        <!--hutool core工具类-->
         <dependency>
             <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>4.1.19</version>
+            <artifactId>hutool-core</artifactId>
+            <version>4.2.1</version>
+        </dependency>
+        <!--Http-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-http</artifactId>
+            <version>4.2.1</version>
+        </dependency>
+
+        <!--POI-->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.17</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-poi</artifactId>
+            <version>4.2.1</version>
         </dependency>
 
         <dependency>
